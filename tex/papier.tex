@@ -1,3 +1,6 @@
+% We rely on the document class "book"
+% I set the font size to 12pt and the ratio to A5, it's up to you
+% oneside is the option that prevents the addition of a white page between two chapters if the first one ends on an odd page. In novels, we currently see chapters starting on left or right page, it doesn't matter. 
 \documentclass[12pt, a5paper, oneside]{book}
 
 \usepackage[utf8]{inputenc}
@@ -5,27 +8,49 @@
 \usepackage[french]{babel}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+
+% I import graphicx because there is an image on my title page
 \usepackage{graphicx}
+
+% I import hyperref because I use the "href" command in some included files. I use href in these files because I use the same to build my e-books. 
+% The hidelinks option prevents to add a style that highlight clickable items. This kind of style could screw up the render on paper. 
 \usepackage[pdftex,pdfauthor={Marine Dunstetter},pdftitle={Suzuha},hidelinks]{hyperref}
 
+% I use sectsty package for lazzy customization of the chapter titles
+% chapternumberfont is for the chapter number line ("Chapitre 1")
+% chaptertitlefont is for the title itself ("La petite danseuse")
 \usepackage{sectsty}
 \chapternumberfont{\large}
 \chaptertitlefont{\Large}
 
+% pagestyle defines the global look of all pages. When using the document class "book", it default to something that actually doesn't fit novels so much. 
+% plain is what we want, there is no headers and the page numbers are centered at the bottom of the page.
 \pagestyle{plain}
+
+% Default "book" margins let a lot of space at page top and bottom. Also, they dont let the same side margins on even and odd pages because they care about the binding. This is nice, but maybe somehow overkill as printers often advice to let 2cm on each side.
+% I use the package geometry to configure the margins I want.
+% It can be done without geometry, but in this case you'll have to use commands to add or remove a size from the default margin. And as they are not the same on left and right and it's hard to make sure what are the initial values, I found the use of geometry safer. 
 \usepackage[hmargin=2.0cm,vmargin=2.0cm]{geometry}
 
+% A couple of data that can be use as variables elsewhere.
+% For instance "\@title" will show the title of the book.
 \title{Suzuha}
 \author{Marine Dunstetter}
 \date{2017}
 
+% \makeatletter ... \makeatother can be required to override some commands.
 \makeatletter
+% This is to give a better look to table of contents, with a smaller font and dots.
 \renewcommand\l@chapter{\@dottedtocline{0}{0em}{1.5em}}
+% This is a custom command to define a font huger than huge. I use it for the book title.
 \newcommand\HUGE{\@setfontsize\HUGE{35}{50}}
+% I entirely rewrite maketitle so the title page display as I want.
 \renewcommand{\maketitle}{%
   \begin{titlepage}
+    % "center" is to center the content horizontally
     \begin{center}
       \@author \\
+      % What \hspace{0pt} + \vfill embeds is centered vertically
       \hspace{0pt}
       \vfill
         \includegraphics[width=132px]{logo-academie-des-renards-black.png}
@@ -40,11 +65,14 @@
 }
 \makeatother
 
+% My custom \parbr command add more space between two paragraphs. I use it in the text to highligh ellipsis or understandable context change.
 \newcommand{\parbr}{%
   \par
   \leavevmode \\
   \par}
   
+% My custom command \empty page adds an actual empty white page. This is require at least for the first page of the book, as the printer won't decide for you that nothing should be written on the first page.
+% \mbox{} is the important instruction here, because \newpage only makes the next content starts on a new page, it is just a breaker between 2 contents, it does not add empty content.  
 \newcommand{\emptypage}{
   \newpage
   \thispagestyle{empty}
@@ -62,18 +90,21 @@
 
 \emptypage
 
+% This syntaxe is here only to hide the chapter number for "Prologue", it doesn't follow the general diplay rule and it should not be counted as chapter 1. 
 \chapter*{%
 Prologue\\
 \leavevmode \\
 Le monstre noir}
 \addcontentsline{toc}{chapter}{Prologue}
 
+% Your book should start on an odd page. In my case, it is page 5. I have to reset the current page number here because the white pages created with \emptypage are not automatically counted.
 \setcounter{page}{5}
 
 \input{Suzuha.tex}
 
 \input{remerciements.tex}
 
+% I customize the table of contents title, which is "Table des matières" by default. The shorter version "Table" is often used in novels.
 \renewcommand\contentsname{Table}
 \tableofcontents
 
