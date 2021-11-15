@@ -1,9 +1,13 @@
+% This will hide the page number on editor's data & legal stuff page.
 \thispagestyle{empty}
 
+% This command draws a square on the page, from top to bottom. As result, when you write text, it is "pushed" below the invisible square. It's a bit patch-up, you need to manually tweack the size of the square (20 here) according to the size of your text, but it does the job.
 \noindent{\parbox[b][20\baselineskip]{\linewidth}{\rule{0pt}{\linewidth}}}
 
+% footnotesize is one of the default font size. It writes small characters as for footer notes. I thought it was just fine for the editors's data. 
 \begin{footnotesize}  
 
+% I remove line identation for these data
 \noindent{Édité par Marine Dunstetter, janvier 2022}
 
 \noindent{10120, Saint-André-Les-Vergers, France} \\
@@ -16,6 +20,7 @@
 
 \noindent{\textbf{loi n°49-956 du 16 juillet 1949 sur les publications destinées à la jeunesse, modifiée par la loi n°2011-525 du 17 mai 2011 : février 2020}} \\
 
+% I add more space before the ISBN
 \leavevmode \\
 
 \noindent{ISBN: 978-2-9561497-6-7}
