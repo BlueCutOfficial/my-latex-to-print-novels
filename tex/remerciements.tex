@@ -1,6 +1,9 @@
+% The text in chapter will appear on the chapter page, but this one is too long to be in the table of contents, so I use "*" to remove it.
 \chapter*{Vous aussi, vous maîtrisez la magie~!}
+% Then I manually add my own entry in the table of contents for the chapter, but I rename it to something shorter. 
 \addcontentsline{toc}{chapter}{Merci !}
 
+% textit is a command for font style italic 
 \textit{Merci à toi, lecteur, d'avoir pris un moment pour voyager avec Suzuha. J'espère que cette aventure t'a plu et que tu repasseras un de ces jours par l'Académie des Renards, car elle a fort besoin de toi.} 
 
 \parbr
@@ -9,8 +12,10 @@ L'Académie des Renards est une petite collection de romans indépendante. Vous 
 
 \parbr
 
+% href command to create links in the PDF is provided by hyperref package. I use the same file for e-books and paper book, that's why links are implemented. In "papier.tex", hyperref is configured so no style appears on links and screw up the paper render.
 Site web~: \href{http://academie-des-renards.dunstetter.fr}{academie-des-renards.dunstetter.fr} \\
 
+% The \\ at the end of the line is a line breaker that add a little space before the next line. 
 Facebook~: \href{https://www.facebook.com/academiedesrenards/}{www.facebook.com/academiedesrenards/} \\
 
 Twitter~: \href{https://twitter.com/academierenards}{@academierenards} \\
@@ -19,8 +24,10 @@ Instagram~:  \href{https://www.instagram.com/academiedesrenards/}{@academiedesre
 
 Boutique~: \href{https://utip.io/academiedesrenards/shop}{https://utip.io/academiedesrenards/shop}
 
+% After the last links, I jump to a new page for the last acknowledgements, for esthetic purpose.
 \newpage
 
+% textbf is a command for font style bold 
 \textbf{Quelques mentions spéciales}
 
 \parbr
