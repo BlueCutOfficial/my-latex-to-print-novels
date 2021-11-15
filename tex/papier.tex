@@ -1,0 +1,82 @@
+\documentclass[12pt, a5paper, oneside]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage[pdftex,pdfauthor={Marine Dunstetter},pdftitle={Suzuha},hidelinks]{hyperref}
+
+\usepackage{sectsty}
+\chapternumberfont{\large}
+\chaptertitlefont{\Large}
+
+\pagestyle{plain}
+\usepackage[hmargin=2.0cm,vmargin=2.0cm]{geometry}
+
+\title{Suzuha}
+\author{Marine Dunstetter}
+\date{2017}
+
+\makeatletter
+\renewcommand\l@chapter{\@dottedtocline{0}{0em}{1.5em}}
+\newcommand\HUGE{\@setfontsize\HUGE{35}{50}}
+\renewcommand{\maketitle}{%
+  \begin{titlepage}
+    \begin{center}
+      \@author \\
+      \hspace{0pt}
+      \vfill
+        \includegraphics[width=132px]{logo-academie-des-renards-black.png}
+        \leavevmode \\
+        \leavevmode \\
+        \leavevmode \\
+        {\HUGE\textsc{\@title}}
+      \vfill
+      \hspace{0pt}
+    \end{center}
+  \end{titlepage}
+}
+\makeatother
+
+\newcommand{\parbr}{%
+  \par
+  \leavevmode \\
+  \par}
+  
+\newcommand{\emptypage}{
+  \newpage
+  \thispagestyle{empty}
+  \mbox{}
+}
+
+\begin{document}
+
+\emptypage
+
+\newpage
+\input{mentions-legales-papier.tex}
+
+\maketitle
+
+\emptypage
+
+\chapter*{%
+Prologue\\
+\leavevmode \\
+Le monstre noir}
+\addcontentsline{toc}{chapter}{Prologue}
+
+\setcounter{page}{5}
+
+\input{Suzuha.tex}
+
+\input{remerciements.tex}
+
+\renewcommand\contentsname{Table}
+\tableofcontents
+
+\emptypage
+
+\end{document}
