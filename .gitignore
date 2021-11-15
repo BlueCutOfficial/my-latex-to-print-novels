@@ -1,0 +1,5 @@
+# Allow demo PDF building without committing logo and build files
+tex/logo-academie-des-renards-black.png
+tex/*
+!tex/*.tex
+!tex/*.pdf
