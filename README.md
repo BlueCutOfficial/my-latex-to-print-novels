@@ -30,3 +30,7 @@ This configuration shows how to:
 - Not display page number on end of chapter pages
 - Customize the table of contents name
 - Customize the table of content style to make it a little smaller and add dots
+
+### Demo
+
+Here is the output PDF built with Texmaker and the set of LaTeX files: [Demo PDF](https://github.com/BlueCutOfficial/my-latex-to-print-novels/blob/main/tex/papier.pdf)
