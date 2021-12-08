@@ -16,6 +16,12 @@
 % The hidelinks option prevents to add a style that highlight clickable items. This kind of style could screw up the render on paper. 
 \usepackage[pdftex,pdfauthor={Marine Dunstetter},pdftitle={Suzuha},hidelinks]{hyperref}
 
+% This block is to prevent words to break between two lines. It allows the space between words to be a little more flexible in order to keep a justify text with no constant breaking words.
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
 % I use sectsty package for lazzy customization of the chapter titles
 % chapternumberfont is for the chapter number line ("Chapitre 1")
 % chaptertitlefont is for the title itself ("La petite danseuse")
