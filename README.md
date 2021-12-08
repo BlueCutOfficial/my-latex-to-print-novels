@@ -13,7 +13,7 @@ LaTeX makes quite simple to configure a set of rules and margins that can apply 
 ### Fit French
 The configuration I share in this repo is meant to be a source of inspiration for any project, but it fits the design of a French novel.
 
-Rules are quite different from one language to another. For instance, in English book, the first paragraph of a chapter is not indented ; in French books, it is. I don't know all possible differences in all possible languages, but note I built this config for my French books.
+Rules are quite different from one language to another. For instance, in English books, the first paragraph of a chapter is not indented ; in French books, it is. I don't know all possible differences in all possible languages, but note I built this config for my French books.
 
 ## Features
 
@@ -24,6 +24,7 @@ This configuration shows how to:
 - Move a block at the bottom of the page to write the editor's data and other legal stuff
 - Customize "maketitle" to display a custom title page
 - Control margins and let the 2cm required by printers on each side
+- Deactivate word-break at the end of the line (as text is justified)
 - Not add a white page if a chapter ends on an odd page
 - Manually reset the page number (because the empty white page doesn't count)
 - Not display page number on the editor's data page
