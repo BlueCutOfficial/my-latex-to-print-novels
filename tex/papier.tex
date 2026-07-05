@@ -33,10 +33,22 @@
 % plain is what we want, there is no headers and the page numbers are centered at the bottom of the page.
 \pagestyle{plain}
 
-% Default "book" margins let a lot of space at page top and bottom. Also, they dont let the same side margins on even and odd pages because they care about the binding. This is nice, but maybe somehow overkill as printers often advice to let 2cm on each side.
-% I use the package geometry to configure the margins I want.
-% It can be done without geometry, but in this case you'll have to use commands to add or remove a size from the default margin. And as they are not the same on left and right and it's hard to make sure what are the initial values, I found the use of geometry safer. 
-\usepackage[hmargin=2.0cm,vmargin=2.0cm]{geometry}
+% Default "book" margins let a lot of space at pages top and bottom; printers often advice to let 2cm on each side. 
+% 2cm actually is the minimum for the binding (your pages stick together to shape the book so you need enough blank on the inner border of the pages).
+% However, for the outer borders, you can put less space and save some paper.
+% I use the package geometry to configure these margins:
+% - 'hmargin' is the default horizontal margin on both left and right
+% - 'asymetric' + 'bindingoffset' automatically adds a value to your default hmargin on the inner side of the pages (1.6 + 0.4 = 2.0cm)
+% - 'vmargin' is the vertical margin, first value is for top, second for bottom. I use a bigger value for the bottom to leave some space for the page number.
+% - 'footskip' allows me to have more control over the page number position to the bottom of the text.
+% These things are supposed to be doable without geometry, but in this case you'll have to use commands to add or remove a size from the default margin. And as they are not the same on left and right and it's hard to make sure what are the initial values, I found the use of geometry easier and safer. 
+\usepackage[
+  asymmetric,
+  hmargin=1.6cm,
+  bindingoffset=0.4cm,
+  vmargin={1.6cm,1.8cm},
+  footskip=0.9cm
+]{geometry}
 
 % A couple of data that can be use as variables elsewhere.
 % For instance "\@title" will show the title of the book.
